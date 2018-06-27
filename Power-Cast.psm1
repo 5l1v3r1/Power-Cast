@@ -1,38 +1,38 @@
 function Discover{
-    <#
-    .SYNOPSIS
-        Retrieve all the Cromecast units
-    .DESCRIPTION
-        Retrieve information on all Chromecast units in your multicast domain
-    .EXAMPLE
-        Discover
-        Retrieve data on all the Chromecast devices in your multicast domain
-    .NOTES
-        https://github.com/cube0x0/
-    #>
-        #Tries to load mDNS Dll's files from the .\src\ folder
-        try{
-            $dir=(Get-Item -Path ".").FullName
-            Get-ChildItem "$dir\src\" | ForEach-Object {
-                $Dll = $_
-                add-type -path $Dll.FullName
-            }
+<#
+.SYNOPSIS
+    Retrieve all the Cromecast units
+.DESCRIPTION
+    Retrieve information on all Chromecast units in your multicast domain
+.EXAMPLE
+    Discover
+    Retrieve data on all the Chromecast devices in your multicast domain
+.NOTES
+    https://github.com/cube0x0/
+#>
+#Tries to load mDNS Dll's files from the .\src\ folder
+    try{
+        $dir=(Get-Item -Path ".").FullName
+        Get-ChildItem "$dir\src\" | ForEach-Object {
+            $Dll = $_
+            add-type -path $Dll.FullName
         }
-        catch{
-            Write-Output 'Error, could not load dll'
-            return
-        }
-        #Starting the mDNS discover process with googlecast query
-        try{
-            $Result=[Zeroconf.ZeroconfResolver]::ResolveAsync("_googlecast._tcp.local.")
-        }
-        catch{
-            Write-Output 'Error, could not start mDNS resolver'
-            return
-        }
-        #Return the discover result 
-        return $Result
     }
+    catch{
+        Write-Output 'Error, could not load dll'
+        return
+    }
+    #Starting the mDNS discover process with googlecast query
+    try{
+        $Result=[Zeroconf.ZeroconfResolver]::ResolveAsync("_googlecast._tcp.local.")
+    }
+    catch{
+        Write-Output 'Error, could not start mDNS resolver'
+        return
+    }
+    #Return the discover result 
+    return $Result
+}
 
 function Discover_ips{
 #Function used by the 'Cast' function to harvest ipadresses
