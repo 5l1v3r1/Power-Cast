@@ -5,13 +5,13 @@ To discover chromecast devices it uses multicast DNS so the discovery process wi
 
 Import-Module .\Power-Cast.psm1 
 
-Cast
+Cast  
 #Automatically discover and Rickroll all the Chromecast devices in your multicast domain
 
-Discover
+Discover   
 #Discovers all Chromecast devices in your multicast domain
 
-Cast -Video dQw4w9WgXcQ -IpAddress 192.168.1.48,192.168.1.49
+Cast -Video dQw4w9WgXcQ -IpAddress 192.168.1.48,192.168.1.49  
 #Cast Rick to 192.168.1.48 and 192.168.1.49
 
 --------------------------------------------------------------
