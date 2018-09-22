@@ -12,7 +12,7 @@ function Discover{
 #>
 #Tries to load mDNS Dll's files from the .\src\ folder
     try{
-        $dir=($PSScriptRoot)
+        $dir=(Get-Module power-cast).path.TrimEnd('Power-Cast.psm1')
         Get-ChildItem "$dir\src\" | ForEach-Object {
             $Dll = $_
             add-type -path $Dll.FullName
@@ -38,7 +38,7 @@ function Discover_ips{
 #Function used by the 'Cast' function to harvest ipadresses
     #Tries to load mDNS Dll's files from the .\src\ folder
     try{
-        $dir=($PSScriptRoot)
+        $dir=(Get-Module power-cast).path.TrimEnd('Power-Cast.psm1')
         Get-ChildItem "$dir\src\" | ForEach-Object {
             $Dll = $_
             add-type -path $Dll.FullName
