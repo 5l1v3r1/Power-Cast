@@ -12,7 +12,7 @@ function Discover{
 #>
 #Tries to load mDNS Dll's files from the .\src\ folder
     try{
-        $dir=(Get-Item -Path ".").FullName
+        $dir=($PSScriptRoot)
         Get-ChildItem "$dir\src\" | ForEach-Object {
             $Dll = $_
             add-type -path $Dll.FullName
@@ -38,7 +38,7 @@ function Discover_ips{
 #Function used by the 'Cast' function to harvest ipadresses
     #Tries to load mDNS Dll's files from the .\src\ folder
     try{
-        $dir=(Get-Item -Path ".").FullName
+        $dir=($PSScriptRoot)
         Get-ChildItem "$dir\src\" | ForEach-Object {
             $Dll = $_
             add-type -path $Dll.FullName
