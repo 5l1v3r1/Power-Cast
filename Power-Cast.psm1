@@ -37,15 +37,15 @@ function Cast{
     Cast youtube or rickroll to chromecast[s]
 .DESCRIPTION
     Cast youtube or rickroll to chromecast[s]
-.PARAMETER IpAddress
-    Specify the IP on chromecast that you want to cast to, default is all
-.PARAMETER IpAddress
+.PARAMETER IPAddresses
+    Specify IP on chromecast, default is autodiscovery
+.PARAMETER Video
     Specify the Video that you want to cast, default is ricky
 .EXAMPLE
     Cast
     Cast rick to every chromecast in your LAN
 .EXAMPLE
-    Cast -Video dQw4w9WgXcQ -IpAdress 192.168.1.48
+    Cast -Video dQw4w9WgXcQ -IPAddresses 192.168.1.48
     Cast rick to 192.168.1.48
 .NOTES
     https://github.com/cube0x0/
